@@ -1,25 +1,54 @@
+"use client";
+import { CardBlog } from "@/components/card-blog";
+import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 
 export default function Home() {
   return (
     <div className="flex flex-col gap-14 md:gap-28">
-      <Header />
-      <section>
-        <div className="flex flex-col-reverse items-center md:flex-row md:justify-between">
-          <div className="flex flex-col gap-2 md:w-2/4">
-            <h1 className="text-2xl text-gray-50 md:text-5xl"><span className="text-cyan-400 font-bold">World.io</span>: Explorando Ideias que Transformam o Mundo!</h1>
-            <h2 className="text-gray-500 font-normal text-base md:text-2xl">
-              Descubra Perspectivas, Conecte-se com o Novo e Inspire-se a Cada
-              Postagem!
-            </h2>
+      <main className="mx-auto max-w-sm flex flex-col gap-14 md:gap-28 md:max-w-7xl">
+        <Header />
+        <section>
+          <div className="flex flex-col-reverse items-center md:flex-row md:justify-between">
+            <div className="flex flex-col gap-2 md:w-2/4">
+              <h1 className="text-2xl text-gray-50 md:text-5xl">
+                <span className="text-cyan-400 font-bold">World.io</span>:
+                Explorando Ideias que Transformam o Mundo!
+              </h1>
+              <h2 className="text-gray-500 font-normal text-base md:text-2xl">
+                Descubra Perspectivas, Conecte-se com o Novo e Inspire-se a Cada
+                Postagem!
+              </h2>
+            </div>
+            <img
+              className="size-80 md:size-2/5"
+              src="/hero-section.svg"
+              alt="planetas conectados"
+            />
           </div>
-          <img className="size-80 md:size-2/5" src="/hero-section.svg" alt="planetas conectados" />
-        </div>
-      </section>
-      <h3 className="text-gray-50 text-lg md:text-3xl">Blogs recentes</h3>
-      <section>
+        </section>
+        <section className="flex flex-col gap-6">
+          <h3 className="text-gray-50 text-lg md:text-3xl">Blogs recentes</h3>
+          <div className="flex flex-col gap-6 justify-center items-center">
+            <div className="flex flex-wrap gap-6 ">
+              <CardBlog />
+              <CardBlog />
+              <CardBlog />
+              <CardBlog />
+              <CardBlog />
+              <CardBlog />
+            </div>
 
-      </section>
+            <button
+              type="button"
+              className="text-gray-900 font-bold bg-cyan-400 px-9 py-2 rounded"
+            >
+              Carregar mais blogs
+            </button>
+          </div>
+        </section>
+      </main>
+      <Footer/>
     </div>
   );
 }
