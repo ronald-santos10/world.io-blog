@@ -1,4 +1,3 @@
-"use client";
 import { CardBlog } from "@/components/card-blog";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -29,26 +28,12 @@ export default function Home() {
         </section>
         <section className="flex flex-col gap-6">
           <h3 className="text-gray-50 text-lg md:text-3xl">Blogs recentes</h3>
-          <div className="flex flex-col gap-6 justify-center items-center">
             <div className="flex flex-wrap gap-6 ">
               <CardBlog />
-              <CardBlog />
-              <CardBlog />
-              <CardBlog />
-              <CardBlog />
-              <CardBlog />
-            </div>
-
-            <button
-              type="button"
-              className="text-gray-900 font-bold bg-cyan-400 px-9 py-2 rounded"
-            >
-              Carregar mais blogs
-            </button>
           </div>
         </section>
       </main>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

@@ -16,7 +16,7 @@ export const CardBlog = () => {
           Saiba como a prática de meditação está ajudando milhões a encontrar
           paz interior e a melhorar a qualidade de vida.
         </p>
-        <Link href={"/"}>
+        <Link href={"/post"}>
           <span className="text-xl text-cyan-400">Ler mais</span>
         </Link>
       </div>
