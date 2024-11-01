@@ -1,8 +1,26 @@
 import { CardBlog } from "@/components/card-blog";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import client from "../../sanity";
 
-export default function Home() {
+interface Post {
+  _id: string;
+  title: string;
+  content: string;
+}
+
+export default async function Home() {
+  let posts: Post[] = [];
+  try {
+    posts = await client.fetch(`*[_type == "post"]`);
+  } catch (error) {
+    console.error("Erro ao buscar posts:", error);
+  }
+
+  const renderPosts = posts.map((post: Post) => (
+    <CardBlog key={post._id} post={post} {...post} />
+  ));
+
   return (
     <div className="flex flex-col gap-14 md:gap-28">
       <main className="mx-auto max-w-sm flex flex-col gap-14 md:gap-28 md:max-w-7xl">
@@ -29,7 +47,7 @@ export default function Home() {
         <section className="flex flex-col gap-6">
           <h3 className="text-gray-50 text-lg md:text-3xl">Blogs recentes</h3>
             <div className="flex flex-wrap gap-6 ">
-              <CardBlog />
+              {renderPosts}
           </div>
         </section>
       </main>
